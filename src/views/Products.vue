@@ -30,8 +30,8 @@ export default {
   },
 
   methods: {
-    onClick () {
-      this.getAll()
+    onClick (payload) {
+      this.$router.push({ name: 'Add' })
     },
 
     edit (id) {

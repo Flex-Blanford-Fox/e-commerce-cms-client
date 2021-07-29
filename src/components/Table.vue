@@ -15,15 +15,15 @@
         <td>{{product.id}}</td>
         <td>{{product.name}}</td>
         <td>
-          <img :src="product.image_url" alt="">
+          <img width="50" :src="product.image_url" alt="">
         </td>
         <!-- <td>{{product.image_url}}</td> -->
         <td>Rp. {{numberWithCommas(product.price)}}</td>
         <td>{{product.stock}}</td>
         <td>
           <!-- <div> -->
-            <button @click="edit(product.id)">edit</button>
-            <button @click="deleteProduct(product.id)">Delete</button>
+            <button class="btn btn-outline-secondary" @click="edit(product.id)">edit</button>
+            <button class="btn btn-outline-danger" @click="deleteProduct(product.id)">Delete</button>
           <!-- </div> -->
         </td>
       </tr>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
+
 export default {
   name: 'Table',
   props: ['products'],
@@ -43,7 +45,21 @@ export default {
       this.$emit('edit', id)
     },
     deleteProduct (id) {
-      this.$emit('deleteProduct', id)
+      Swal.fire({
+        title: 'Are you sure?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!'
+          )
+          this.$emit('deleteProduct', id)
+        }
+      })
     }
   }
 }

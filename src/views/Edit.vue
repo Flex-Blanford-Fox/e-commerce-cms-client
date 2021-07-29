@@ -20,13 +20,14 @@
         <label for="exampleInputEmail1">Stock</label>
         <input v-model="stock" type="number" class="form-control" id="editEmail" aria-describedby="emailHelp" >
       </div><br>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Confirm Edit</button>
     </form>
 </div>
 </template>
 
 <script>
 import axios from '../axios/axios.js'
+import Swal from 'sweetalert2'
 // let query
 
 export default {
@@ -57,6 +58,13 @@ export default {
           this.image_url = ''
           this.price = 0
           this.stock = 0
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Edit Succesful',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.$router.push('/products')
         })
         .catch(err => {
