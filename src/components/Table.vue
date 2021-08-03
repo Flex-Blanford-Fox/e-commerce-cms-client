@@ -32,34 +32,45 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
 export default {
   name: 'Table',
-  props: ['products'],
+  // props: ['products'],
+  computed: {
+    products () {
+      // return this.$store.state.products
+      return this.$store.getters.filtered
+    },
+    filteredProducts () {
+      return this.$store.getters.filtered
+    }
+  },
   methods: {
     numberWithCommas (x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     },
     edit (id) {
-      this.$emit('edit', id)
+      // this.$emit('edit', id)
+      this.$router.push({ path: `/edit/${id}` })
     },
     deleteProduct (id) {
-      Swal.fire({
-        title: 'Are you sure?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!'
-          )
-          this.$emit('deleteProduct', id)
-        }
-      })
+      this.$store.dispatch('deleteProduct', id)
+      // Swal.fire({
+      //   title: 'Are you sure?',
+      //   icon: 'warning',
+      //   showCancelButton: true,
+      //   confirmButtonColor: '#3085d6',
+      //   cancelButtonColor: '#d33',
+      //   confirmButtonText: 'Yes, delete it!'
+      // }).then((result) => {
+      //   if (result.isConfirmed) {
+      //     Swal.fire(
+      //       'Deleted!'
+      //     )
+      //     this.$emit('deleteProduct', id)
+      //   }
+      // })
     }
   }
 }

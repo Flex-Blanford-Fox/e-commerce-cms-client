@@ -3,7 +3,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">E-Commerce CMS</a>
         <div>
-          <button class="btn btn-secondary mx-3" @click="onClick()">Add Product</button>
+          <button v-if="path" class="btn btn-secondary mx-3" @click="onClick()">Add Product</button>
           <button class="btn btn-danger mx-3" @click="logout()">Logout</button>
         </div>
       </div>
@@ -17,7 +17,7 @@ export default {
   name: 'Navbar',
   methods: {
     onClick () {
-      this.$emit('onClick', {})
+      this.$router.push('/add')
     },
     logout () {
       Swal.fire({
@@ -45,6 +45,9 @@ export default {
       } else {
         return false
       }
+    },
+    path () {
+      return this.$route.path === '/products'
     }
   }
 }
