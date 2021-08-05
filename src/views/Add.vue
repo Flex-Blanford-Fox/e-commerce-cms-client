@@ -1,28 +1,32 @@
 <template>
 <div>
   <Navbar></Navbar>
-  <div class = "container align-items-center">
-    <h1 class= "mt-3">Add new Product</h1>
-    <form @submit.prevent="add" class="col-4 offset-4">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Name of Product</label>
-        <input v-model="name" type="text" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
-      </div><br>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Image URL</label>
-        <input v-model="image_url" type="url" class="form-control" id="exampleInputPassword1" required>
-      </div><br>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Price</label>
-        <input v-model="price" type="number" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
-      </div><br>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Stock</label>
-        <input v-model="stock" type="number" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
-      </div><br>
-      <button type="submit" class="btn btn-primary mx-3">Add Product</button>
-    </form>
-      <button class="btn btn-danger mx-3" @click.prevent="toHome">Back</button>
+  <div class = "container d-flex justify-content-center align-items-center">
+    <div class= "col-8">
+      <h1 class= "mt-3">Add new Product</h1>
+      <form @submit.prevent="add" >
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name of Product</label>
+          <input v-model="name" type="text" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Image URL</label>
+          <input v-model="image_url" type="url" class="form-control" id="exampleInputPassword1" required>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Price</label>
+          <input v-model="price" type="number" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Stock</label>
+          <input v-model="stock" type="number" class="form-control" id="editEmail" aria-describedby="emailHelp" required>
+        </div><br>
+        <div class="container d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary mx-3">Add Product</button>
+          <button type="button" class="btn btn-danger mx-3" @click.prevent="toHome">Back</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 </template>

@@ -13,11 +13,12 @@ export default new Vuex.Store({
     keyword: ''
   },
   mutations: {
-    SET_EVENTS (state, payload) {
+    SET_PRODUCTS (state, payload) {
+      state.keyword = ''
       state.products = payload
     },
 
-    SET_EVENT (state, data) {
+    SET_PRODUCT (state, data) {
       state.product = data
     },
 
@@ -59,7 +60,7 @@ export default new Vuex.Store({
         }
       })
         .then(data => {
-          context.commit('SET_EVENTS', data.data)
+          context.commit('SET_PRODUCTS', data.data)
           // this.products = data.data
         })
         .catch(err => {
@@ -74,7 +75,7 @@ export default new Vuex.Store({
         }
       })
         .then(data => {
-          context.commit('SET_EVENT', data.data)
+          context.commit('SET_PRODUCT', data.data)
         })
         .catch(err => {
           console.log(err)

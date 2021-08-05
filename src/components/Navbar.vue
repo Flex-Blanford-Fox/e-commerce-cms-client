@@ -1,12 +1,12 @@
 <template>
-    <nav class="navbar navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">E-Commerce CMS</a>
-        <div>
-          <button v-if="path" class="btn btn-secondary mx-3" @click="onClick()">Add Product</button>
-          <button class="btn btn-danger mx-3" @click="logout()">Logout</button>
-        </div>
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">E-Commerce CMS</a>
+      <div>
+        <button v-if="path" class="btn btn-secondary mx-3" @click="onClick()">Add Product</button>
+        <button class="btn btn-danger mx-3" @click="logout()">Logout</button>
       </div>
+    </div>
   </nav>
 </template>
 

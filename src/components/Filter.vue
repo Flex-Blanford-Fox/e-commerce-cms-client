@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     filterProduct () {
-      this.$store.dispatch('filterProducts', this.keyword)
+      // this.$store.dispatch('filterProducts', this.keyword)
+      this.$store.commit('SET_KEYWORD', this.keyword)
     }
   }
 }
